@@ -36,5 +36,3 @@ class View_Loader
         include(SERVER_ROOT . 'views/page_main.php');
     }
 }
-
-?>

@@ -75,12 +75,12 @@ CREATE TABLE IF NOT EXISTS `menu` (
 
 INSERT INTO `menu` (`url`, `nev`, `szulo`, `jogosultsag`, `sorrend`) VALUES
 ('admin', 'Admin', '', '001', 80),
-('alapinfok', 'Alapinfók', 'elerhetoseg', '111', 40),
+('regitracio', 'Regisztráció', 'elerhetoseg', '111', 40),
 ('belepes', 'Belépés', '', '100', 60),
-('elerhetoseg', 'Elérhetőség', '', '111', 20),
-('kiegeszitesek', 'Kiegészítések', 'elerhetoseg', '011', 50),
+('hirek', 'Hírek', '', '111', 20),
+('mnbdb', 'Arfolyamok', 'elerhetoseg', '011', 50),
 ('kilepes', 'Kilépés', '', '011', 70),
-('linkek', 'Linkek', '', '100', 30),
+('soapdb', 'Soapdb', '', '100', 30),
 ('nyitolap', 'Nyitólap', '', '111', 10);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

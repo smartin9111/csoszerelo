@@ -3,55 +3,56 @@
 
 <head>
     <meta charset="utf-8">
-    <title>MVC - PHP</title>
+    <title>Csoszerelo Kft</title>
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_ROOT ?>css/main_style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <?php if ($viewData['style']) echo '<link rel="stylesheet" type="text/css" href="' . $viewData['style'] . '">'; ?>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 
 <body>
-    <header>
-        <div id="user"><em><?= $_SESSION['userlastname'] . " " . $_SESSION['userfirstname'] ?></em></div>
-        <h1 class="header">Azonnnal szerelés bármikor</h1>
-    </header>
+    <div class="container">
+        <header>
+            <div id="user"><em><?= $_SESSION['userlastname'] . " " . $_SESSION['userfirstname'] ?></em></div>
+            <h1 class="header">Gyors szolgáltatás az ország bármely részén</h1>
+        </header>
+        <nav>
+            <nav class="navbar navbar-dark bg-dark">
 
 
+                <?php echo Menu::getMenu($viewData['selectedItems']); ?>
+            </nav>
+        </nav>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src='/web2/css/logo.png' alt='' style='width:100px' />
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <?php foreach ($this->data['menuItems'] as $item) : ?>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">
-                            <?php echo $item[0] ?>
-                        </a>
-                    </li>
-                <?php endforeach; ?>
+        <aside>
+            <p>Vízszerelés gyorsszolgálat
+                Cégünk szakértő megoldást nyújt vízzel kapcsolatos problémáira, legyen szó csőtörésről,
+                duguláselhárításról,
+                egy mosógép vagy mosogatógép hálózatra kötéséről, fűtésrendszerek tisztításáról és
+                karbantartásáról vagy
+                csőrendszerek teljes felújításáról.
 
-            </ul>
-        </div>
-    </nav>
+                Munkánkat lelkiismeretesen végezzük, tudjuk, hogy néha egy-egy percen múlik az, hogy a csőtörés
+                egy egész
+                társasházat fenyegessen. Hívjon minket bátran a nap 24 órájában hétvégén és ünnepnapokon is, mi
+                a lehető
+                leggyorsabban indulunk a helyszínre!
 
-
-
-
-
+                Kollégáink Budapest belvárosából indulnak, de egész Pest megye területén végezzük tevékenységünk
+                minden
+                részét. Amennyiben kérdése van, bátran hívjon minket telefonszámunkon vagy küldjön nekünk
+                emailt!
+            </p>
+        </aside>
 
 
+        <section>
+            <?php if ($viewData['render']) include($viewData['render']); ?>
+        </section>
 
-
-    <aside>
-        <p>Phasellus wisi nulla...</p>
-    </aside>
-    <section>
-        <?php if ($viewData['render']) include($viewData['render']); ?>
-    </section>
+    </div>
     <footer class="bg-dark text-center text-white">
         <!-- Grid container -->
         <div class="container p-4">
@@ -72,6 +73,7 @@
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2021 Copyright:
+
         </div>
         <!-- Copyright -->
     </footer>

@@ -2,31 +2,11 @@
 
 class Nyitolap_Controller
 {
-	public $baseName = 'nyitolap';  //meghatï¿½rozni, hogy melyik oldalon vagyunk
-	public function main(array $vars) // a router ï¿½ltal tovï¿½bbï¿½tott paramï¿½tereket kapja
+	public $baseName = 'nyitolap';  //meghatározni, hogy melyik oldalon vagyunk
+	public function main(array $vars) // a router által továbbított paramétereket kapja
 	{
-
-		
-
-
-	
-
-		//betï¿½ltjï¿½k a nï¿½zetet
+		//betöltjük a nézetet
 		$view = new View_Loader($this->baseName."_main");
-
-
-		// Ã–sszes dinamikus adat Ã¶sszegyÅ±jtÃ©se pl menuItems, ...
-		$menu = array();
-        $connection = Database::getConnection();
-        $stmt = $connection->query("select url, nev, szulo, jogosultsag from menu where jogosultsag like '" . $_SESSION['userlevel'] . "'order by sorrend");
-        while ($menuitem = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $menu[$menuitem['url']] = array($menuitem['nev'], $menuitem['szulo'], $menuitem['jogosultsag']);
-        }
-		
-
-		// A dinamikus adatot adjuk oda a view-nak, megjelenÃ­tÃ©sre
-		$view->assign("menuItems", $menu);
-
 	}
 }
 
