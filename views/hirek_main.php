@@ -1,10 +1,12 @@
 <form action="<?= SITE_ROOT ?>hirek" onsubmit="return ellenoriz();" method="post">
     <div>
-        <label><input type="text" id="nev" name="cim" size="20" maxlength="40">Név (minimum 5 karakter): </label>
+        <input id="hirek" type="submit" value="Küld">
+        <label><input type="text" id="nev" name="cim" size="20" maxlength="40">Kérjük adja meg a nevét </label>
         <br />
-        <label> <textarea id="tartalom" name="tartalom" cols="40" rows="10"></textarea> Tartalom (kötelező): </label>
+        <label> <textarea id="tartalom" name="tartalom" cols="40" rows="10"></textarea> Hozzászólás: </label>
         <br />
-        <input id="kuld" type="submit" value="Küld">
-        <button onclick="ellenoriz();" type="button">Ellenőriz</button>
+
+
+
     </div>
 </form>

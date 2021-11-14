@@ -36,7 +36,7 @@ class Hirek_Model
 
         $connection = Database::getConnection();
         $connection->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
-        // SELECT * FROM `hirek` JOIN felhasznalok ON hirek.felhasznaloId = felhasznalok.id
+        $sqlSelect = "SELECT * FROM `hirek` JOIN felhasznalok ON hirek.felhasznaloId = felhasznalok.id";
         $result = [];
 
         return $result;
