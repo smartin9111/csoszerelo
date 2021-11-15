@@ -6,32 +6,18 @@ class Hirek_Controller
 	public function main(array $vars) // a router �ltal tov�bb�tott param�tereket kapja
 	{
 
-		// validáció
-		if (!isset($_SESSION["userid"]) || $_SESSION["userid"] == 0) {
-			$view = new View_Loader("belepes_main");
-			return;
+
+		$model = new Hirek_Model;
+		$getData = $model->getArticles();
+		$regData = $model->saveArticle($vars);
+
+
+		$view = new View_Loader($this->baseName . "_main");
+		foreach ($getData as $name => $value) {
+			$view->assign($name, $value);
 		}
-
-		if ($_SERVER["REQUEST_METHOD"] === "POST") {
-			$res = (new Hirek_Model())->saveArticle([
-				"cim" => $vars["cim"],
-				"tartalom" => $vars["tartalom"],
-				"felhasznaloId" => $_SESSION["userid"],
-				"letrehozva" => time()
-			]);
-			$view = new View_Loader($this->baseName . "_main");
-		}
-
-
-		if ($_SERVER["REQUEST_METHOD"] === "GET") {
-
-			// A modelben csinálj egy getArticles method-ot
-
-			// Dinamikus adatként add át a view-nak a lekérdezett adatokat
-			$res = (new Hirek_Model())->getArticles();
-			// Módosítsd a view-t (hirke_main.php), iterálj végig a híreken és jelenítsd meg őket 
-
-			$view = new View_Loader($this->baseName . "_main");
+		foreach ($regData as $name => $value) {
+			$view->assign($name, $value);
 		}
 	}
 }
